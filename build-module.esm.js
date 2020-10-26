@@ -15427,8 +15427,7 @@ function buildModule (src) {
                 return
 
             try {
-                const program = espree_1.parse(token.text, { ecmaVersion: 6, sourceType: 'module' });
-
+                const program = espree_1.parse(token.text, { ecmaVersion: 9, sourceType: 'module' }); 
                 const isExplorable =(langParts[1] === 'explorable');
 
                 if (!isExplorable)
