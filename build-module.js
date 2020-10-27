@@ -3,11 +3,10 @@ import marked from 'https://cdn.skypack.dev/marked'
 
 
 // Build a pure es module from literate markdown.
-export default function buildModule (options) {
+export default function buildModule ({ source, translateNpmToUrl }) {
     let scriptContent = ''
-    const {source, translateNpmToUrl} = options
     const npmUrl = 'https://cdn.skypack.dev/'
-    const reg = RegExp('(^\/)|(^\.\/)|(^\..\/)|(^http)') /** find imports that do not begin with  "/", "./", or "../"   */
+    const npmModuleRegx = RegExp('(^\/)|(^\.\/)|(^\..\/)|(^http)') /** find imports that do not begin with  "/", "./", or "../"   */
 
     const walkTokens = (token) => {
         if (token.type === 'code') {
@@ -23,22 +22,20 @@ export default function buildModule (options) {
 
                 if (translateNpmToUrl) { 
                     // find node imports and replace with url for cdn
-                    let indexPositionChange = 0;
-                    program.body.forEach((elem) => {
-                        if (elem.type === 'ImportDeclaration' && !reg.test(elem.source.value)) {
+                    // work from the bottom up to avoid positional index math due to changing the length of the string
+                    Object.keys(program.body).reverse().forEach((idx) => {
+                        const elem = program.body[idx]
+                        if (elem.type === 'ImportDeclaration' && !npmModuleRegx.test(elem.source.value)) {
                             const val = `${npmUrl}${elem.source.value}`;
                             elem.source.value = val
                             elem.source.raw = "\'" + val +"\'"
-
-                            const positionChange = elem.source.end - elem.source.start // we are about to change the text length - record the original length
-                            token.text = token.text.slice(0,elem.source.start + indexPositionChange) + `'${val}'` + token.text.slice(elem.source.end + indexPositionChange, token.text.length)
-                            indexPositionChange += val.length - positionChange + 2 // we are changing the text length by this much + 2 single quotes
+                            token.text = token.text.slice(0,elem.source.start) + `'${val}'` + token.text.slice(elem.source.end, token.text.length)
                         }
                     });
                 }
                 
                 if (!isExplorable)
-                     scriptContent += `${token.text}\n\n`
+                    scriptContent += `${token.text}\n\n`
               
                    
 
