@@ -8,8 +8,8 @@ import buildModule from 'substrate-build'
 import fs from 'fs'
 
 
-const inputFile = fs.readFileSync('./some-file.explorable.md', 'utf8')
-const code = buildModule(inputFile)
+const source = fs.readFileSync('./some-file.explorable.md', 'utf8')
+const code = buildModule({ source })
 
 // code is now a string containing a valid javascript module
 ```
