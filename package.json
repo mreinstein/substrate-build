@@ -1,6 +1,6 @@
 {
   "name": "substrate-build",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "convert a substrate document into an es module",
   "main": "build-module.esm.js",
   "type": "module",
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/mreinstein/substrate-build.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Mike Reinstein",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/mreinstein/substrate-build/issues"
