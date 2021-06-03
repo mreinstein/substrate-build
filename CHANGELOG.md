@@ -1,3 +1,7 @@
+# 0.7.1
+* use npm hosted rollup-plugin-url-resolve dep
+
+
 # 0.7.0
 * BREAKING: alter parameters to be an argument object
 * add `translateNpmToUrl` option to transform npm modules to point at fully qualified CDN URL (skypack for now.)

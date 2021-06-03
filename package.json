@@ -1,6 +1,6 @@
 {
   "name": "substrate-build",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "convert a substrate document into an es module",
   "main": "build-module.esm.js",
   "type": "module",
