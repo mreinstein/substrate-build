@@ -1,3 +1,8 @@
+# 0.8.0
+* remove build step
+* require node >= v12.17
+
+
 # 0.7.1
 * use npm hosted rollup-plugin-url-resolve dep
 
