@@ -2,11 +2,9 @@
   "name": "substrate-build",
   "version": "0.7.1",
   "description": "convert a substrate document into an es module",
-  "main": "build-module.esm.js",
+  "main": "build-module.js",
   "type": "module",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "prepublishOnly": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,8 +18,12 @@
     "url": "https://github.com/mreinstein/substrate-build/issues"
   },
   "homepage": "https://github.com/mreinstein/substrate-build#readme",
-  "devDependencies": {
-    "rollup": "^2.32.1",
-    "rollup-plugin-url-resolve": "^0.2.0"
+  "devDependencies": {},
+  "dependencies": {
+    "espree": "^7.3.1",
+    "marked": "^2.0.7"
+  },
+   "engines": {
+    "node": ">=12.17"
   }
 }

@@ -1,5 +1,5 @@
-import espree from 'https://cdn.skypack.dev/espree'
-import marked from 'https://cdn.skypack.dev/marked'
+import espree from 'espree'
+import marked from 'marked'
 
 
 // Build a pure es module from literate markdown.
