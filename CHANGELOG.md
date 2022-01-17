@@ -1,3 +1,8 @@
+# 0.9.0
+* update marked and espree deps
+* remove package-lock.json
+
+
 # 0.8.0
 * remove build step
 * require node >= v12.17

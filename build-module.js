@@ -1,5 +1,5 @@
-import espree from 'espree'
-import marked from 'marked'
+import * as espree from 'espree'
+import { marked }  from 'marked'
 
 
 // Build a pure es module from literate markdown.
