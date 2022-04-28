@@ -1,6 +1,6 @@
 {
   "name": "substrate-build",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "convert a substrate document into an es module",
   "main": "build-module.js",
   "type": "module",

@@ -1,3 +1,7 @@
+# 0.10.0
+* switch ecmaVersion from 2018 to 2020 for optional chaining support and nullish coalescing
+
+
 # 0.9.0
 * update marked and espree deps
 * remove package-lock.json
